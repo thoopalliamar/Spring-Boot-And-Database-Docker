@@ -21,6 +21,23 @@ services:
    healthcheck:
     test: "exit 0"
 
+  mysql:
+   image: mysql:5.7
+   ports:
+      - 3306:3306
+   container_name: mysql
+   mem_limit: 2g
+   environment: 
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=juggler_db
+    - MYSQL_PASSWORD=root
+    - MYSQL_USER=root
+
+   network_mode: "host"
+   hostname: localhost
+   restart: always
+   healthcheck:
+    test: "exit 0"
 
 
  
